@@ -1,0 +1,93 @@
+import mongoose from "mongoose";
+
+
+const movieSchema = new mongoose.Schema({
+    title:{
+        type:String,
+        required:true,
+    },
+    fullTitle:{
+        type:String,
+        required:true,
+    },
+    year:{
+        type:String,
+        required:true,
+    },
+    releaseDate:{
+        type:String,
+        required:true,
+    },
+    image:{
+          type:String,
+        required:true,
+    },
+    runtimeMins:{
+          type:String,
+        required:true,
+    },
+    runtimeStr:{
+          type:String,
+        required:true,
+    },
+    plot:{
+          type:String,
+        required:true,
+    }, 
+   contentRating:{
+          type:String,
+        required:true,
+    }, 
+    imDbRating:{
+          type:String,
+        required:true,
+    }, 
+   imDbRatingCount:{
+          type:String,
+        required:true,
+    }, 
+     metacriticRating:{
+          type:String,
+        required:true,
+    },
+     genres:{
+          type:String,
+        required:true,
+    }, 
+     genreList:{
+          type:[Object],
+        required:true,
+    }, 
+    directors:{
+          type:String,
+        required:true,
+    }, 
+    directorList:{
+          type:[Object],
+        required:true,
+    }, 
+   stars:{
+          type:[String],
+        required:true,
+    }, 
+   trailer:{
+          type:Object,
+        required:true,
+    },
+    boxOffice:{
+         type:Object,
+        required:true,
+    }, 
+   posters:{
+          type:Object,
+        required:true,
+    }, 
+    backdrops:{
+        type:Object,
+        required:true,
+    }
+})
+
+
+const Movies = mongoose.model("Movies",movieSchema);
+export{Movies}
