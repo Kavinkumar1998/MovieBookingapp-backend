@@ -43,30 +43,9 @@ router.post("/addmovie", async(req,res)=>{
 //router for adding many data
 router.post("/addAlldata", async(req,res)=>{
 try{
-    const{title,fullTitle,year,releaseDate,image,runtimeMins,runtimeStr,plot,contentRating,imDbRating,imDbRatingCount,
-        metacriticRating,genres,genreList,directors,directorList,stars,trailer,boxOffice,posters,backdrops  }= req.body;
-        let newMovie = await new Movies.insertMany([{
-            title:title,
-            fullTitle:fullTitle,
-            year:year,
-            releaseDate:releaseDate,
-            image:image,
-            runtimeMins:runtimeMins,
-            runtimeStr:runtimeStr,
-            plot:plot,
-            contentRating:contentRating,
-            imDbRating:imDbRating,
-            imDbRatingCount:imDbRatingCount,
-            metacriticRating:metacriticRating,
-            genres:genres,
-            genreList:genreList,
-            directors:directors,
-            directorList:directorList,
-            stars:stars,
-            trailer:trailer,
-            boxOffice:boxOffice,
-            posters:posters,
-            backdrops:backdrops}]);
+    const[{title,fullTitle,year,releaseDate,image,runtimeMins,runtimeStr,plot,contentRating,imDbRating,imDbRatingCount,
+        metacriticRating,genres,genreList,directors,directorList,stars,trailer,boxOffice,posters,backdrops  }]= req.body;
+        let newMovie = await  Movies.insertMany(req.body);
         res.status(200).json({message:"Data upadted sucessfully"})
 }catch(error){
     console.log(error);
@@ -90,5 +69,4 @@ router.get("/getMovie",async(req,res)=>{
 })
 
 
-const movieRouter = router;
-export {movieRouter};
+export const movieRouter = router;

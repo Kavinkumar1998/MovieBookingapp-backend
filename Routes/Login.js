@@ -1,6 +1,6 @@
 import express from "express";
 import bcrypt from "bcrypt";
-import { User,generateAuthToken } from "../Model/User.js";
+import { User,generateAuthToken } from "../Model/Users.js";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
