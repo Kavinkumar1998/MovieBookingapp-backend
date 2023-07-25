@@ -23,8 +23,24 @@ if(booked){
 //router for getting data
 router.get("/Bookings",async(req,res)=>{
     try{
-const movies = await Booking.find();
-res.status(200).json(movies)
+const newBooking = await Booking.find();
+res.status(200).json(newBooking)
+    }catch(error){
+        console.log(error);
+        res.status(500).json({message:"Internal Server Error"})
+    }
+});
+
+//route for geting booking by Id
+router.get("Booking/:id",async(req,res)=>{
+    try{
+        const {id}=req.params;
+        const booking = await Booking.findById({_id:id});
+        if(!booking){
+            res.status(400).json({message:"Booking Not Found"});
+        }else{
+            res.status(200).json(booking);
+        }
     }catch(error){
         console.log(error);
         res.status(500).json({message:"Internal Server Error"})
