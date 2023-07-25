@@ -67,6 +67,21 @@ router.get("/getMovie",async(req,res)=>{
         res.status(500).json({message:"Internal Server Error"})
     }
 })
+//router geting data by id
+router.get("/movie/:id",async(req,res)=>{
+    try{
+ let{id}= req.params;
+ const movie = await Movies.findById({_id:id});
+ if(!movie){
+    res.status(400).json({message:"Movie not Found"})
+ }else{
+res.status(200).json(movie);
+ }
+    }catch(error){
+        console.log(error);
+        res.status(500).json({message:"Internal Server Error"})
+    }
+})
 
 
 export const movieRouter = router;
