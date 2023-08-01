@@ -13,11 +13,7 @@ showTime:{
     type:String,
     required:true
 },
-row:{
-    type:String,
-    required:true
-},
-seatNo:{
+seat:{
     type:String,
     required:true
 },
