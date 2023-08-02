@@ -8,7 +8,7 @@ router.post("/addTicket",async(req,res)=>{
     try{
 const {movie,date,showTime,seat,amount}=req.body;
 
-    let newBooking = await Booking(movie,date,showTime,seat,amount).save();
+    let newBooking = await Booking({movie,date,showTime,seat,amount}).save();
     res.status(200).json({message:"Booking saved successfully"})
 
     }catch(error){

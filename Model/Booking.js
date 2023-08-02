@@ -3,7 +3,9 @@ import mongoose from "mongoose";
 const bookingSchema = new mongoose.Schema({
 movie:{
     type: mongoose.Schema.Types.Object,
-    ref: "Movies"
+    ref: "Movies",
+ 
+    
 },
 date:{
     type:String,

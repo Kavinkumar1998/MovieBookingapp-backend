@@ -12,9 +12,7 @@ import { bookingRouter } from "./Routes/Booking.js";
 dotenv.config();
 DataBaseConnection();
 const app = express();
-app.use(
-    express.urlencoded({ extended: true })
-);
+
 app.use(express.json());
 app.use(cors());
 
