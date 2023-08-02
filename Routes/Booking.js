@@ -7,13 +7,10 @@ const router = express.Router();
 router.post("/addTicket",async(req,res)=>{
     try{
 const {movie,date,showTime,seat,amount}=req.body;
-let booked = await Booking.findOne({movie:movie});
-if(booked){
-    res.status(400).json({message:"Booking already exists"});
-}else{
+
     let newBooking = await Booking(movie,date,showTime,seat,amount).save();
     res.status(200).json({message:"Booking saved successfully"})
-}
+
     }catch(error){
         console.log(error);
         res.status(500).json({message:"Internal Server Error"})
