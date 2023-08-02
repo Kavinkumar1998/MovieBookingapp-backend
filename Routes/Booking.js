@@ -11,7 +11,7 @@ let booked = await Booking.findOne({movie:movie});
 if(booked){
     res.status(400).json({message:"Booking already exists"});
 }else{
-    let newBooking = await Booking(movie,date,showTime,row,seatNo,amount).save();
+    let newBooking = await Booking(movie,date,showTime,seat,amount).save();
     res.status(200).json({message:"Booking saved successfully"})
 }
     }catch(error){
