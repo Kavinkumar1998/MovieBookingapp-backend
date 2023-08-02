@@ -14,7 +14,7 @@ showTime:{
     required:true
 },
 seat:{
-    type:String,
+    type:[String],
     required:true
 },
 amount:{
