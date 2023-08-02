@@ -6,7 +6,7 @@ const router = express.Router();
 //router adding booking
 router.post("/addTicket",async(req,res)=>{
     try{
-const {movie,date,showTime,row,seatNo,amount}=req.body;
+const {movie,date,showTime,seat,amount}=req.body;
 let booked = await Booking.findOne({movie:movie});
 if(booked){
     res.status(400).json({message:"Booking already exists"});
