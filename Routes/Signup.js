@@ -15,6 +15,7 @@ else if(Password.length < 6){
     res.status(200).json({message:"Password must be 8 characters"});
 }
 else{
+    
     //hashing password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword= await bcrypt.hash(Password,salt);
